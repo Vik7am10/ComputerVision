@@ -1,0 +1,41 @@
+# 📚 Self-Supervised Monocular Depth Estimation
+
+### Project by: Vikram Chandramohan
+
+---
+
+## 🧠 Overview
+
+This project implements a **self-supervised learning framework for monocular depth estimation** based on the principles of [Monodepth2](https://arxiv.org/abs/1806.01260).  
+The goal is to predict dense pixel-wise depth maps from a single RGB image **without using any ground-truth depth labels**.  
+Training is fully self-supervised using **photometric reconstruction losses** over sequential frames in video datasets.
+
+---
+
+## 🚀 Key Features
+
+- **Depth Network (DepthNetMultiScale):**  
+  Predicts disparity maps at multiple scales using a ResNet18-based encoder-decoder.
+
+- **Pose Estimation Network (PoseNet):**  
+  Estimates 6-DoF relative camera pose between consecutive video frames.
+
+- **Photometric Reconstruction Loss:**  
+  Combines SSIM and L1 loss to supervise depth learning via view synthesis.
+
+- **Automasking:**  
+  Filters static pixels and occlusions by comparing reconstruction error vs identity mapping.
+
+- **Edge-Aware Disparity Smoothness:**  
+  Encourages smooth disparity while respecting image edges.
+
+- **Multi-Scale Supervision:**  
+  Loss is computed across four different spatial resolutions to stabilize training.
+
+- **Training on KITTI Raw Dataset:**  
+  Utilized multiple driving sequences for improved model generalization.
+
+---
+
+## 🏗️ Project Structure
+
